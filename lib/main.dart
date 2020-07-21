@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -27,7 +28,36 @@ class MainScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 2.0,
+        centerTitle: true,
+        title: SizedBox(
+          width: 600,
+          child: CupertinoTextField(
+            placeholder: 'Search',
+            prefix: Padding(
+              padding: EdgeInsets.only(
+                left: 10,
+              ),
+              child: Icon(Icons.search),
+            ),
+            suffix: Padding(
+              padding: EdgeInsets.only(
+                right: 10,
+              ),
+              child: Icon(Icons.close),
+            ),
+            padding: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(
+                Radius.circular(
+                  6,
+                ),
+              ),
+              color: Color(0xffF1F3F4),
+            ),
+          ),
+        ),
       ),
+      backgroundColor: Color(0xffF1F3F4),
       body: Center(
         child: Text("Hola Mundo"),
       ),
