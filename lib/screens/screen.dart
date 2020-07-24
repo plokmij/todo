@@ -40,44 +40,47 @@ class Screen extends StatelessWidget {
         ),
       ),
       backgroundColor: Color(0xffF1F3F4),
-      body: Row(
-        crossAxisAlignment: CrossAxisAlignment.start  ,
-        children: [
-          TodoCard(
-            tasks: [
-              'eat',
-              'sleep',
-              'sleep',
-              'eat',
-            ],
-          ),
-          TodoCard(
-            tasks: [
-              'code',
-              'sleep',
-              'eat',
-              'code',
-            ],
-          ),
-          TodoCard(
-            tasks: [
-              'learn',
-              'code',
-              'eat',
-              'code',
-            ],
-          ),
-          TodoCard(
-            tasks: [
-              'code',
-              'sleep',
-              'code',
-              'eat',
-              'sleep',
-              'bad code',
-            ],
-          ),
-        ],
+      body: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            TodoCard(
+              tasks: [
+                'eat',
+                'sleep',
+                'sleep',
+                'eat',
+              ],
+            ),
+            TodoCard(
+              tasks: [
+                'code',
+                'sleep',
+                'eat',
+                'code',
+              ],
+            ),
+            TodoCard(
+              tasks: [
+                'learn',
+                'code',
+                'eat',
+                'code',
+              ],
+            ),
+            TodoCard(
+              tasks: [
+                'code',
+                'sleep',
+                'code',
+                'eat',
+                'sleep',
+                'bad code',
+              ],
+            ),
+          ],
+        ),
       ),
       drawer: Drawer(
         child: ListView(
