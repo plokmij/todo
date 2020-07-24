@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo/widgets/add_new_list_button.dart';
 
 class TodoCard extends StatelessWidget {
   const TodoCard({
@@ -18,6 +19,7 @@ class TodoCard extends StatelessWidget {
             6,
           ),
         ),
+        margin: EdgeInsets.all(0),
         child: Container(
           decoration: BoxDecoration(
             color: Colors.white,
@@ -44,8 +46,13 @@ class TodoCard extends StatelessWidget {
                   color: Colors.blue,
                 ),
                 title: Align(
-                  child: Text('Add a Task'),
-                  alignment: Alignment(-1.2, 0),
+                  child: Text(
+                    'Add a task',
+                    style: TextStyle(
+                      color: Color(0xff5f6368),
+                    ),
+                  ),
+                  alignment: Alignment(-1.3, 0),
                 ),
               ),
               ...tasks

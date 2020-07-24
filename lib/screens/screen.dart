@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:todo/widgets/add_new_list_button.dart';
 import 'package:todo/widgets/todo_card.dart';
 
 class Screen extends StatelessWidget {
@@ -40,47 +41,62 @@ class Screen extends StatelessWidget {
         ),
       ),
       backgroundColor: Color(0xffF1F3F4),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            TodoCard(
-              tasks: [
-                'eat',
-                'sleep',
-                'sleep',
-                'eat',
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              'Main Board',
+              style: Theme.of(context).textTheme.headline6.copyWith(
+                    color: Color.fromRGBO(119, 124, 130, 1),
+                  ),
+            ),
+          ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                TodoCard(
+                  tasks: [
+                    'eat',
+                    'sleep',
+                    'sleep',
+                    'eat',
+                  ],
+                ),
+                TodoCard(
+                  tasks: [
+                    'code',
+                    'sleep',
+                    'eat',
+                    'code',
+                  ],
+                ),
+                TodoCard(
+                  tasks: [
+                    'learn',
+                    'code',
+                    'eat',
+                    'code',
+                  ],
+                ),
+                TodoCard(
+                  tasks: [
+                    'code',
+                    'sleep',
+                    'code',
+                    'eat',
+                    'sleep',
+                    'bad code',
+                  ],
+                ),
+                AddNewListItemButton(),
               ],
             ),
-            TodoCard(
-              tasks: [
-                'code',
-                'sleep',
-                'eat',
-                'code',
-              ],
-            ),
-            TodoCard(
-              tasks: [
-                'learn',
-                'code',
-                'eat',
-                'code',
-              ],
-            ),
-            TodoCard(
-              tasks: [
-                'code',
-                'sleep',
-                'code',
-                'eat',
-                'sleep',
-                'bad code',
-              ],
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
       drawer: Drawer(
         child: ListView(
