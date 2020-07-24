@@ -10,7 +10,7 @@ class Screen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 2.0,
+        elevation: 1.0,
         centerTitle: true,
         title: SizedBox(
           width: 600,

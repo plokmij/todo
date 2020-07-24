@@ -32,15 +32,26 @@ class TodoCard extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               ListTile(
-                contentPadding: EdgeInsets.symmetric(
-                  horizontal: 8,
+                trailing: InkWell(
+                  onTap: () {},
+                  child: Icon(
+                    Icons.more_vert,
+                    color: Colors.black,
+                  ),
                 ),
-                trailing: Icon(
-                  Icons.more_vert,
-                  color: Colors.black,
+                title: EditableText(
+                  controller: TextEditingController(),
+                  focusNode: FocusNode(),
+                  style: TextStyle(
+                    color: Colors.black87,
+                    fontSize: 16,
+                  ),
+                  cursorColor: Colors.blue,
+                  backgroundCursorColor: Colors.black,
                 ),
               ),
               ListTile(
+                onTap: () {},
                 leading: Icon(
                   Icons.add,
                   color: Colors.blue,
