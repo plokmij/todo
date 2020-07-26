@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:todo/widgets/add_new_list_button.dart';
 
 class TodoCard extends StatelessWidget {
@@ -32,12 +33,34 @@ class TodoCard extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               ListTile(
-                trailing: InkWell(
-                  onTap: () {},
-                  child: Icon(
-                    Icons.more_vert,
-                    color: Colors.black,
+                trailing: PopupMenuButton(
+                  //padding: EdgeInsets.zero,
+                  elevation: 2.0,
+                  offset: Offset(52.0, 0),
+                  tooltip: 'Settings',
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(
+                      9,
+                    ),
                   ),
+                  itemBuilder: (BuildContext context) {
+                    return [
+                      buildPopupMenuItem(
+                        icon: Icon(Icons.edit),
+                        title: 'Change name',
+                      ),
+                      buildPopupMenuItem(
+                        icon: Icon(
+                          Icons.delete,
+                        ),
+                        title: 'Delete',
+                      ),
+                      buildPopupMenuItem(
+                        icon: Icon(Icons.list),
+                        title: 'Delete all completed tasks',
+                      ),
+                    ];
+                  },
                 ),
                 title: EditableText(
                   controller: TextEditingController(),
@@ -86,6 +109,29 @@ class TodoCard extends StatelessWidget {
       title: Align(
         child: Text(task),
         alignment: Alignment(-1.2, 0),
+      ),
+    );
+  }
+
+  PopupMenuItem buildPopupMenuItem({
+    @required Icon icon,
+    @required String title,
+  }) {
+    return PopupMenuItem(
+      height: 4,
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+          vertical: 4,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            icon,
+            SizedBox(width: 5),
+            Text(title),
+          ],
+        ),
       ),
     );
   }
